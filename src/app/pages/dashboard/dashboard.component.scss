@@ -1,0 +1,56 @@
+mat-drawer {
+    width: 500px;
+    min-height: 100%;
+  }
+
+  table {
+      width: 90%;
+  }
+
+.dashboard-container {
+    min-height: 100%;
+}
+
+.mat-column-dealName {
+    width: 15%;
+  }
+
+  .mat-column-purchasePrice {
+    width: 25%;
+  }
+
+  .mat-column-address {
+    width: 35%;
+  }
+
+  .mat-column-noi {
+    width: 15%;
+  }
+
+  .mat-column-capRate{
+    width: 10%;
+  }
+
+  .deal-table-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+  }
+
+  button {
+    background-color: #ff6700;
+    color: white;
+}
+
+.table-options{
+    display: flex;
+    justify-content: flex-end;
+    width: 90%;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+mat-drawer-container{
+    background-color: white;
+}
