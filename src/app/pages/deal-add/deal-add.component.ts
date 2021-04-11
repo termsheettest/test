@@ -1,5 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, AbstractControl, FormGroupDirective } from '@angular/forms';
 
 @Component({
   selector: 'deal-add',
@@ -10,6 +10,8 @@ export class DealAddComponent implements OnInit {
 
   @Output() dealAdded = new EventEmitter<{ deal: any }>();
   @Output() onClose = new EventEmitter<{ close: boolean }>();
+  @ViewChild(FormGroupDirective) formRef: FormGroupDirective;
+  @ViewChild('form') form;
   dealAddForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder, ) { }
@@ -26,21 +28,16 @@ export class DealAddComponent implements OnInit {
     });
   }
 
-  clearForm(){
-    let control: AbstractControl = null;
-    this.dealAddForm.reset();
-    Object.keys(this.dealAddForm.controls).forEach((name) => {
-      control = this.dealAddForm.controls[name];
-      control.setErrors(null);
-    });
+  clearForm(form){
+    form.resetForm();
   }
 
   close() {
-    this.clearForm();
+    this.clearForm(this.form);
     this.onClose.emit({ close: true });
   }
 
-  addDeal() {
+  addDeal(form) {
     console.log(this.dealAddForm);
     if (this.dealAddForm.valid
       && this.dealAddForm.value.name != null

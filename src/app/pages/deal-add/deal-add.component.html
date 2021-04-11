@@ -13,7 +13,7 @@
 <div class="secondary-status"></div>
 
 <div class="deal-add-container">
-    <form [formGroup]="dealAddForm" (submit)="addDeal()">
+    <form [formGroup]="dealAddForm" #form="ngForm" (submit)="addDeal(form)">
         <div>
             <mat-form-field class="form-field" appearance="outline">
                 <mat-label>Name</mat-label>
