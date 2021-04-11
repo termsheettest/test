@@ -29,7 +29,6 @@ export class DealAddComponent implements OnInit {
   clearForm(){
     let control: AbstractControl = null;
     this.dealAddForm.reset();
-    this.dealAddForm.markAsUntouched();
     Object.keys(this.dealAddForm.controls).forEach((name) => {
       control = this.dealAddForm.controls[name];
       control.setErrors(null);
@@ -43,7 +42,14 @@ export class DealAddComponent implements OnInit {
 
   addDeal() {
     console.log(this.dealAddForm);
-    if (this.dealAddForm.valid) {
+    if (this.dealAddForm.valid
+      && this.dealAddForm.value.name != null
+      && this.dealAddForm.value.price != null
+      && this.dealAddForm.value.address != null
+      && this.dealAddForm.value.city != null
+      && this.dealAddForm.value.state != null
+      && this.dealAddForm.value.postalCode != null
+      && this.dealAddForm.value.noi != null) {
       this.dealAdded.emit(this.dealAddForm.value);
       this.close();
     } 
