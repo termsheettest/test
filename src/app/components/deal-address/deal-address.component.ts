@@ -1,3 +1,5 @@
+// angular address form schematic - ng generate @angular/material:address-form <component-name>
+
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
